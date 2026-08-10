@@ -1,0 +1,191 @@
+:root {
+  --neon-pink: #ff2a85;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; 
+  font-family: 'VT323', monospace;
+  color: #fbe36a;
+}
+
+/* Hero Section Container */
+.hero-container {
+  position: fixed; /* Stays in place while content scrolls over it */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+@keyframes heroEntrance {
+  0% { 
+    transform: scale(1.15); 
+    filter: brightness(0) blur(10px); 
+  }
+  100% { 
+    transform: scale(1); 
+    filter: brightness(1) blur(0); 
+  }
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: heroEntrance 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Fixed UI Overlay Layer */
+.ui-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+}
+
+.ui-top-left {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.studio-logo {
+  height: 120px;
+  width: auto;
+  /* Use drop-shadow for transparent PNGs instead of rectangular box-shadow */
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.8));
+}
+
+.ui-top-right {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 0.3s ease;
+}
+
+.ui-top-right:hover {
+  color: #fff;
+}
+
+/* Video Modal */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.video-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.modal-content video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--neon-pink);
+}
+
+/* Interactive Hotspot */
+.hotspot {
+  position: absolute;
+  /* Approximated coordinates based on image center */
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px; /* size of the neon sign */
+  height: 80px;
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: auto;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  
+  /* Initial invisible state */
+  background: transparent;
+}
+
+.hotspot:hover {
+  /* Exact effect requested */
+  transform: translate(-50%, -50%) scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Content Section (Scrolls over the hero) */
+.content-section {
+  position: relative;
+  margin-top: 100vh; /* Pushes it below the initial screen */
+  background-color: #0d0f12;
+  color: #fff;
+  padding: 100px 20px;
+  min-height: 100vh;
+  z-index: 2;
+  text-align: center;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.5); /* shadow over the hero image */
+}
+
+.content-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-inner h2 {
+  font-size: 4rem;
+  color: var(--neon-pink);
+  margin-bottom: 2rem;
+}
+
+.content-inner p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-family: sans-serif;
+  color: #ccc;
+}

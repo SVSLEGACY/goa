@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goa Hero Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <!-- UI Layer: Extracted yellow text fixed to viewport corners -->
+    <div class="ui-overlay">
+      <div class="ui-top-left">
+        <img src="/studio-logo-transparent.png" alt="2:47 PM STUDIO" class="studio-logo">
+      </div>
+      <div class="ui-top-right" id="check-hype-btn">CHECK HYPE</div>
+    </div>
+
+    <!-- Video Modal Overlay -->
+    <div id="video-modal" class="video-modal hidden">
+      <div class="modal-content">
+        <button id="close-modal" class="close-btn">&times;</button>
+        <!-- Placeholder video until user uploads theirs -->
+        <video id="hype-video" controls>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+          Your browser does not support HTML video.
+        </video>
+      </div>
+    </div>
+
+    <!-- Hero Background Container -->
+    <div class="hero-container">
+      <img src="/hero-bg.jpg" alt="Goa Hero Background" class="hero-bg-img">
+      
+      <!-- Interactive Target: Placed exactly over the neon sign in the image -->
+      <a href="https://hhgoa.com/" target="_blank" class="hotspot" aria-label="Visit Hacker House Goa"></a>
+    </div>
+
+    <!-- Content Section to demonstrate scroll effect -->
+    <div class="content-section">
+      <div class="content-inner">
+        <h2>Welcome to the Residency</h2>
+        <p>This is where the next generation of Web3 and AI builders converge. Scroll down to discover more about the hacker house experience.</p>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
